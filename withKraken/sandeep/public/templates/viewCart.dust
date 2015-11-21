@@ -1,0 +1,4 @@
+{>"layouts/master" /}
+{<body}
+	<script id="source"></script>
+{/body}

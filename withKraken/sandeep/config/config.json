@@ -1,0 +1,105 @@
+{
+
+    
+    "express": {
+        "view cache": false,
+        "view engine": "js",
+        "views": "path:./.build/templates"
+    },
+    
+
+    
+    "view engines": {
+        "js": {
+            "module": "makara",
+            "renderer": {
+                "method": "js",
+                "arguments": [
+                    { "cache": true, "helpers": "config:dust.helpers" }
+                ]
+            }
+        }
+    },
+
+    "dust": {
+        "helpers": [
+    
+            "dust-makara-helpers"
+    
+        ]
+    },
+    
+
+    
+    "i18n": {
+        "contentPath": "path:./locales",
+        "fallback": "en-US"
+    },
+    
+
+    "specialization": {
+    },
+
+    "middleware": {
+
+        
+        "makara": {
+            "priority": 100,
+            "enabled": true,
+            "module": {
+                "name": "makara",
+                "arguments": [
+                    {
+                        "i18n": "config:i18n",
+                        "specialization": "config:specialization"
+                    }
+                ]
+            }
+        },
+        
+
+        "static": {
+            "module": {
+                "arguments": [ "path:./.build" ]
+            }
+        },
+
+        "router": {
+            "module": {
+                "arguments": [{ "directory": "path:./controllers" }]
+            }
+        },
+
+        "cookieParser": {
+            "priority": 50,
+            "module": {
+                "name": "cookie-parser",
+                "arguments": [ "keyboard cat" ]
+            }
+        },
+
+        "session": {
+            "priority": 100,
+            "module": {
+                "name": "express-session",
+                "arguments": [{"key":"connect.sid","secret": "keyboard cat"}]
+            }
+        },
+
+        "appsec": {
+          "enabled": false,
+          "priority": 110,
+          "module": {
+            "name": "lusca",
+            "arguments": [
+            {
+                "csrf": true,
+                "xframe": "SAMEORIGIN",
+                "xssProtection": true
+              }
+            ]
+          }
+        }
+
+    }
+}

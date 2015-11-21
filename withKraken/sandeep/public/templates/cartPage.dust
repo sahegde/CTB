@@ -1,0 +1,28 @@
+{>"layouts/master" /}
+{<body}
+	<div>
+	    <ul>
+	    	<button id="viewCart" name="viewCart">ViewCart</button>
+	    	<div id="productAddedToCart" visible=false>Product has been added to cart</>
+		</ul>
+	</div>
+    <ul>
+		{#products}
+		  <div class="item">
+		  	<ul class="itemList">
+		  		<li>
+		  			<img src="{image}" height="125px" width="125px">
+		  		</li>
+		  		<li>
+		  			{name}
+		  		</li>
+		  		<li>
+		  			Price : {price} <img class="addToCart" alt={id} src="../img/cart.png" width="25px" height="18px">
+		  		</li>
+		  	</ul>
+		  </div>
+		{:else} 
+		  <p>You have no products to be shown!</p>
+		{/products}
+	</ul>
+{/body}

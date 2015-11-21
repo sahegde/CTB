@@ -1,0 +1,15 @@
+{>"layouts/master" /}
+
+{<body}
+        <h1>Simple Login Page</h1>
+        <form name="login" method="post" action="http://localhost:8000/login">
+            <input type="radio" name="type" value="buyer" checked> Buyer
+            <br>
+            <input type="radio" name="type" value="seller"> Seller
+            <br/>
+            Username<br/><input type="text" name="userid" id="userid"/><br/>
+            Password<br/><input type="password" name="password" id="password"/><br/><br/>
+            <input type="submit" value="Login"/>
+            <input type="reset" value="Cancel"/>
+        </form>
+{/body}
